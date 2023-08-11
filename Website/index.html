@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Neighborhood</title>
+</head>
+  <body onload="n.start()"></body>
+  <script>
+    let n = {
+      home: null,
+      start: function(){
+        this.home = this.createEle("div",0,0,1,1,document.body).say("hi")    
+                          },
+      createEle: function(type,x,y,w,h,parent){
+        let ele = document.createElement(type)
+        ele.position = function(x,y,w,h){
+         ele.style.position = "absolute"
+          ele.style.left = Math.round(x*100).toString()+"%"
+          ele.style.right = Math.round((1-(x+w))*100).toString()+"%"
+          ele.style.top = Math.round(y*100).toString()+"%"
+          ele.style.bottom = Math.round((1-(y+h))*100).toString()+"%"
+          return ele
+        }.bind(this)
+        this.stylize(ele).position(x,y,w,h)
+        parent.appendChild(ele)
+        return ele
+      },
+      stylize: function(ele){
+        ele.say = function(text){
+         if(ele.type=="textarea"){ele.value=text}
+         if(ele.type=="div"){ele.innerHTML=text}
+          return ele
+        }.bind(this)
+       return ele
+      },
+    }
+  </script>
+</html>
