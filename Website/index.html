@@ -11,6 +11,7 @@
                           },
       createEle: function(type,x,y,w,h,parent){
         let ele = document.createElement(type)
+        ele.type = type
         ele.position = function(x,y,w,h){
          ele.style.position = "absolute"
           ele.style.left = Math.round(x*100).toString()+"%"
