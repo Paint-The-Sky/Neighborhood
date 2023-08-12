@@ -7,11 +7,19 @@
     let n = {
       home: null,
       start: function(){
-        this.home = this.createEle("div",0,0,1,1,document.body).say("hi")    
+        this.home = this.createEle("base",0,0,1,1,document.body).say("hi")  
+        this.menubar = this.createEle("menubar",0,0,1,1/18,this.home).backgroundColor("0,0,0,1").flow("o")
                           },
       createEle: function(type,x,y,w,h,parent){
-        let ele = document.createElement(type)
-        ele.type = type
+        let htype = type
+        if(htype=="menubar"){
+          htype = "div"
+        }
+        if(htype=="base"){
+          htype = "div"
+        }
+         let ele = document.createElement(htype) 
+        ele.type = htype
         ele.position = function(x,y,w,h){
          ele.style.position = "absolute"
           ele.style.left = Math.round(x*100).toString()+"%"
@@ -28,6 +36,15 @@
         ele.say = function(text){
          if(ele.type=="textarea"){ele.value=text}
          if(ele.type=="div"){ele.innerHTML=text}
+          return ele
+        }.bind(this)
+        ele.flow = function(text){
+         if(text=="o"){ele.style.overflow="scroll"}
+         if(text=="l"){ele.style.overflow="hidden"}
+          return ele
+        }.bind(this)
+        ele.backgroundColor = function(text){
+         ele.style.backgroundColor="rgba("+text+")"}
           return ele
         }.bind(this)
        return ele
