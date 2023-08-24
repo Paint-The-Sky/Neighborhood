@@ -43,8 +43,12 @@
          if(text=="l"){ele.style.overflow="hidden"}
           return ele
         }.bind(this)
-        ele.backgroundColor = function(text){
-         ele.style.backgroundColor="rgba("+text+")"
+        ele.backgroundColor = function(color){
+         ele.style.backgroundColor="rgba("+color+")"
+          return ele
+        }.bind(this)
+        ele.textColor = function(color){
+         ele.style.color="rgba("+color+")"
           return ele
         }.bind(this)
        return ele
