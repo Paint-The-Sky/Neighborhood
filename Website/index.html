@@ -35,7 +35,8 @@
       stylize: function(ele){
         ele.say = function(text){
          if(ele.type=="textarea"){ele.value=text}
-         if(ele.type=="div"){ele.innerHTML=text}
+         if(ele.type=="div"){ele.innerHTML=text
+                            alert(text)}
           return ele
         }.bind(this)
         ele.flow = function(text){
