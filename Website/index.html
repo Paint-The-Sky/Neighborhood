@@ -4,12 +4,14 @@
 </head>
   <body onload="n.start()">
   <script>
+    //hey if you use my code, show me what you do with it please :)
+  
     let n = {
       home: null,
       start: function(){
         
         this.home = this.createEle("base",0,1/18,1,17/18,document.body).say("Neighborhood").backgroundColor("0,0,0,1").textColor("255,255,255,1")
-        
+        this.news = this.createEle("news",0,0,1,1,document.body).say("This month ").backgroundColor("0,0,0,1").textColor("255,255,255,1")
         this.menubar = this.createEle("menubar",0,0,1,1/18,document.body).backgroundColor("0,38,0,1").flow("o").textColor("255,255,255,1")
                           },
       createEle: function(type,x,y,w,h,parent){
@@ -18,6 +20,9 @@
           htype = "div"
         }
         if(htype=="base"){
+          htype = "div"
+        }
+        if(htype=="news"){
           htype = "div"
         }
          let ele = document.createElement(htype) 
